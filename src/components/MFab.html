@@ -1,0 +1,63 @@
+<button ref:self :type :name :disabled class="mdc-fab material-icons {{classes}}">
+    <span class="mdc-fab__icon">
+        {{icon}}
+    </span>
+</button>
+
+<script>
+import { MDCRipple } from '@material/ripple'
+
+export default {
+  data () {
+    return {
+      mdcRipple: null,
+      mini: '',
+      absolute: '',
+      exited: '',
+      disabled: '',
+      name: '',
+      type: '',
+      color: '',
+      background: ''
+    }
+  },
+  computed: {
+    classes: (mini, absolute, exited, background, color) => {
+      const classList = []
+
+      mini        && classList.push('mdc-fab--mini')
+      absolute    && classList.push('mdc-fab--absolute-right')
+      exited      && classList.push('mdc-fab--exited')
+      background  && classList.push('mdc-theme--' + background + '-bg')
+      color       && classList.push('mdc-theme--' + color)
+      
+      return classList.join(' ')
+    }
+  },
+  oncreate () {
+    this.mdcRipple = MDCRipple.attachTo(this.refs.self)
+  },
+  ondestroy () {
+    this.mdcRipple.destroy()
+  }
+}
+</script>
+
+<style type='text/scss'>
+
+@import "@material/fab/mdc-fab";
+
+.mdc-fab--absolute-right.mdc-fab--absolute-right {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+@media(min-width: 1024px) {
+    .mdc-fab--absolute-right.mdc-fab--absolute-right {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+</style>

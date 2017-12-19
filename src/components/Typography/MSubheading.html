@@ -1,0 +1,33 @@
+{{#if level < 2}}
+  <h3 class="{{classes}}">
+      <slot />
+  </h3>
+{{else}}
+  <h4 class="{{classes}}">
+      <slot />
+  </h4>
+{{/if}}
+
+
+<script>
+export default {
+  data () {
+    return {
+      adjustMargin: '',
+      level: 1
+    }
+  },
+  computed: {
+    classes: (adjustMargin, level) => {
+      const classList = ['mdc-typography--subheading' + level]
+      adjustMargin && classList.push('mdc-typography--adjust-margin')
+      
+      return classList.join(' ')
+    }
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/typography/mdc-typography";
+</style>

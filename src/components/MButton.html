@@ -1,0 +1,65 @@
+{{#if href}}
+    <a role="button" ref:self :href :name :disabled class="mdc-button {{classes}}">
+    {{#if icon}}
+        <i class="material-icons mdc-button__icon">{{icon}}</i>
+    {{/if}}
+        <slot />
+    </a>
+{{else}}
+    <button ref:self :type :name :disabled class="mdc-button {{classes}}">
+    {{#if icon}}
+        <i class="material-icons mdc-button__icon">{{icon}}</i>
+    {{/if}}
+        <slot />
+    </button>
+{{/if}}
+
+<script>
+import { MDCRipple } from '@material/ripple'
+
+export default {
+  data () {
+    return {
+      mdcRipple: null,
+      icon: '',
+      raised: '',
+      unelevated: '',
+      stroked: '',
+      dense: '',
+      compact: '',
+      disabled: '',
+      name: '',
+      href: '',
+      type: '',
+      background: '',
+      color: ''
+    }
+  },
+  computed: {
+    classes: (raised, unelevated, stroked, dense, compact, background, color) => {
+      const classList = []
+
+      raised      && classList.push('mdc-button--raised')
+      unelevated  && classList.push('mdc-button--unelevated')
+      stroked     && classList.push('mdc-button--stroked')
+      dense       && classList.push('mdc-button--dense')
+      compact     && classList.push('mdc-button--compact')
+      background  && classList.push('mdc-theme--' + background + '-bg')
+      color       && classList.push('mdc-theme--' + color)
+      
+      return classList.join(' ')
+    }
+  },
+  oncreate () {
+    this.mdcRipple = MDCRipple.attachTo(this.refs.self)
+  },
+  ondestroy () {
+    this.mdcRipple.destroy()
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/button/mdc-button";
+</style>
+

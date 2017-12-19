@@ -1,0 +1,21 @@
+<div class="{{classes}}" style="{{customStyles}}">
+    <slot />
+</div>   
+
+<script>
+export default {
+  data () {
+    return {
+      dark: '',
+      customStyles: ''
+    }
+  },
+  computed: {
+    classes: dark => 'mdc-theme--dark'
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/theme/mdc-theme";
+</style>

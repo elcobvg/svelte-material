@@ -1,0 +1,20 @@
+<h1 class="mdc-typography--headline {{classes}}">
+    <slot />
+</h1>
+
+<script>
+export default {
+  data () {
+    return {
+      adjustMargin: ''
+    }
+  },
+  computed: {
+    classes: adjustMargin => adjustMargin && 'mdc-typography--adjust-margin'
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/typography/mdc-typography";
+</style>

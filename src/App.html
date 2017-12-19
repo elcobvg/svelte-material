@@ -1,0 +1,83 @@
+<MTheme dark :customStyles>
+  <MLayoutGrid fixedColumnWidth>
+
+    <MDisplay level="2" adjustMargin>svelte-material</MDisplay>
+
+    <MHeadline adjustMargin>{{name}}</MHeadline>
+
+    <MTitle>Buttons</MTitle>
+
+    <MButton icon="build" raised href="#">Build me!</MButton>
+    <MButton icon="grade" unelevated background="secondary-dark">Grade me!</MButton>
+    <MButton icon="cake" color="secondary-dark">Eat me!</MButton>
+    <MButton icon="ac_unit" unelevated dense disabled>Disable me!</MButton>
+    <MButton icon="build" raised compact href="#">Build me!</MButton>
+    <MButton icon="grade" stroked type="submit">Grade me!</MButton>
+
+    <MTitle>Floating action buttons</MTitle>
+
+    <MLayoutGridInner>
+      <MLayoutGridCell span="12">
+        <MFab icon="add" background="primary" />
+        <MFab icon="star" mini />
+        <MFab icon="school" background="secondary" />
+      </MLayoutGridCell>
+    </MLayoutGridInner>
+
+    <MSubheading level="2">Subheading level 2</MSubheading>
+
+    <MBody>
+      Material Components for the web (MDC-Web) helps developers execute Material Design. Developed by a core team of engineers and UX designers at Google, these components enable a reliable development workflow to build beautiful and functional web projects.
+    </MBody>
+
+  </MLayoutGrid>
+</MTheme>
+
+<script>
+  
+import MTheme from './components/MTheme.html'
+import MButton from './components/MButton.html'
+import MFab from './components/MFab.html'
+import { 
+  MLayoutGrid, 
+  MLayoutGridCell, 
+  MLayoutGridInner
+} from './components/LayoutGrid'
+import {
+  MBody,
+  MCaption,
+  MDisplay,
+  MHeadline,
+  MTitle,
+  MSubheading,
+  MTypography
+} from './components/Typography'
+
+export default {
+  components: {
+    MTheme, 
+    MLayoutGrid, 
+    MLayoutGridCell,
+    MLayoutGridInner, 
+    MButton,
+    MFab,
+    MHeadline,
+    MTitle,
+    MSubheading,
+    MBody,
+    MDisplay
+  },
+  data() {
+    return {
+      customStyles: ''
+    }
+  }
+}
+
+</script>
+
+<style type='text/scss'>
+
+@import 'theme';
+
+</style>
