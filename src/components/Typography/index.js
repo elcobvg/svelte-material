@@ -1,5 +1,5 @@
 import MBody from './MBody.html'
-import MButton from './MButton.html'
+import MButtonLabel from './MButtonLabel.html'
 import MCaption from './MCaption.html'
 import MDisplay from './MDisplay.html'
 import MHeadline from './MHeadline.html'
@@ -9,7 +9,7 @@ import MTypography from './MTypography.html'
 
 export {
   MBody,
-  MButton,
+  MButtonLabel,
   MCaption,
   MDisplay,
   MHeadline,

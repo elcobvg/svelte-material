@@ -1,0 +1,77 @@
+<div class="mdc-card">
+{{#if horizontal && (slots['horizontalMedia'] || slots['horizontalTitle'] || slots['horizontalSubtitle']) }}
+  <div class="mdc-card__horizontal-block">
+      <section class="mdc-card__primary">
+      {{#if slots['horizontalMedia']}}
+        <section class="mdc-card__media">
+          <slot name="horizontalMedia" />
+        </section>
+      {{/if}}
+      {{#if slots['horizontalMedia']}}
+        <div class="mdc-card__title{{classesTitle}}">
+          <slot name="horizontalTitle" />
+        </div>
+      {{/if}}
+      {{#if slots['horizontalSubtitle']}}
+        <div class="mdc-card__subtitle">
+          <slot name="horizontalSubtitle" />
+        </div>
+      {{/if}}
+      </section>
+  </div>
+{{/if}}
+{{#if !horizontal && (slots['media'] || slots['title'] || slots['subtitle']) }}
+  <section class="mdc-card__primary">
+  {{#if slots['media']}}
+    <section class="mdc-card__media">
+      <slot name="media" />
+    </section>
+  {{/if}}
+  {{#if slots['title']}}
+    <div class="mdc-card__title{{classesTitle}}">
+      <slot name="title" />
+    </div>
+  {{/if}}
+  {{#if slots['subtitle']}}
+    <div class="mdc-card__subtitle">
+      <slot name="subtitle" />
+    </div>
+  {{/if}}
+  </section>
+{{/if}}
+{{#if slots['supportingText']}}
+  <section class="mdc-card__supporting-text">
+    <slot name="supportingText" />
+  </section>
+{{/if}}
+{{#if slots['actions']}}
+  <section class="mdc-card__actions{{classesActions}}">
+    <slot name="actions" />
+  </section>
+{{/if}}
+</div>
+
+<script>
+export default {
+  data () {
+    return {
+      classList: [],
+      slots: {},
+      verticalActions: '',
+      largeTitle: 'yes',
+      horizontal: ''
+    }
+  },
+  oncreate () {
+    this.set({ slots: this.options.slots })
+  },
+  computed: {
+    classesActions: verticalActions => verticalActions && 'mdc-card__actions--vertical',
+    classesTitle: largeTitle => largeTitle && 'mdc-card__title--large'
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/card/mdc-card";
+</style>

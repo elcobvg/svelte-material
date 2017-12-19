@@ -30,14 +30,33 @@
       Material Components for the web (MDC-Web) helps developers execute Material Design. Developed by a core team of engineers and UX designers at Google, these components enable a reliable development workflow to build beautiful and functional web projects.
     </MBody>
 
+    <MTitle>Cards</MTitle>
+
+    <MLayoutGridCell span="12">
+      <MCard>
+        <span slot="title"><MTitle>Title</MTitle></span>
+        <span slot="subtitle"><MSubheading level="1">Subtitle</MSubheading></span>
+        <span slot="supportingText">
+          <MBody level="1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </MBody>
+        </span>
+        <span slot="actions">
+          <MButton href="https://github.com/matsp/material-components-vue/blob/master/components/Card">
+            github
+          </MButton>
+        </span>
+      </MCard>
+    </MLayoutGridCell>
+
   </MLayoutGrid>
 </MTheme>
 
 <script>
   
-import MTheme from './components/MTheme.html'
-import MButton from './components/MButton.html'
-import MFab from './components/MFab.html'
+import MTheme from './components/Theme/MTheme.html'
+import MButton from './components/Button/MButton.html'
+import MFab from './components/Fab/MFab.html'
 import { 
   MLayoutGrid, 
   MLayoutGridCell, 
@@ -45,6 +64,7 @@ import {
 } from './components/LayoutGrid'
 import {
   MBody,
+  MButtonLabel,
   MCaption,
   MDisplay,
   MHeadline,
@@ -52,6 +72,7 @@ import {
   MSubheading,
   MTypography
 } from './components/Typography'
+import MCard from './components/Card/MCard.html'
 
 export default {
   components: {
@@ -65,7 +86,8 @@ export default {
     MTitle,
     MSubheading,
     MBody,
-    MDisplay
+    MDisplay,
+    MCard
   },
   data() {
     return {
