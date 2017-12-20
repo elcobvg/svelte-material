@@ -1,21 +1,15 @@
-<img class="mdc-card__media-item" :class="classes" />
+<img class="mdc-card__media-item {{classes}}" alt="altText" />
 
 <script>
-
 export default {
-  props: {
-    height: {
-      type: Number,
-      validator: value => (value >= 1 && value <= 3),
-      required: false
+  data () {
+    return {
+      altText: '',
+      height: 1
     }
   },
   computed: {
-    classes () {
-      let calc = {}
-      calc['mdc-card__media-item--' + this.height + 'x'] = true
-      return calc
-    }
+    classes: height => 'mdc-card__media-item--' + height + 'x'
   }
 }
 </script>

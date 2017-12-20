@@ -1,4 +1,4 @@
-<span class="mdc-typography--button{{classes}}">
+<span class="mdc-typography--button {{classes}}">
     <slot />
 </span>
 
@@ -10,7 +10,7 @@ export default {
     }
   },
   computed: {
-    classes: adjustMargin => adjustMargin && ' mdc-typography--adjust-margin'
+    classes: adjustMargin => adjustMargin && 'mdc-typography--adjust-margin'
   }
 }
 </script>
