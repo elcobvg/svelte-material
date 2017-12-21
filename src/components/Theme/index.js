@@ -1,5 +1,2 @@
 import MTheme from './MTheme.html'
-
-export {
-  MTheme
-}
+export { MTheme }

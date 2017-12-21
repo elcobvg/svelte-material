@@ -3,16 +3,16 @@
 ### Markup
 
 ```html
-<m-layout-grid>
-    <m-layout-grid-inner>
-        <m-layout-grid-cell :span="4">
+<MLayoutGrid>
+    <MLayoutGridInner>
+        <MLayoutGridCell span="4">
             <span> Cell 1 </span>
-        </m-layout-grid-cell>
-        <m-layout-grid-cell :span="4">
+        </MLayoutGridCell>
+        <MLayoutGridCell span="4">
             <span> Cell 2 </span>
-        </m-layout-grid-cell>
-    </m-layout-grid-inner>
-</m-layout-grid>
+        </MLayoutGridCell>
+    </MLayoutGridInner>
+</MLayoutGrid>
 ```
 
 ### Props

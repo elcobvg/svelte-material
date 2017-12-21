@@ -30,10 +30,9 @@
       Material Components for the web (MDC-Web) helps developers execute Material Design. Developed by a core team of engineers and UX designers at Google, these components enable a reliable development workflow to build beautiful and functional web projects.
     </MBody>
 
-    <MTitle>Cards</MTitle>
-
     <MLayoutGridInner>
       <MLayoutGridCell span="6">
+        <MTitle>Cards</MTitle>
         <MCard>
           <span slot="title"><MTitle>Title</MTitle></span>
           <span slot="subtitle"><MSubheading level="1">Subtitle</MSubheading></span>
@@ -51,22 +50,14 @@
       </MLayoutGridCell>
 
       <MLayoutGridCell span="6">
-        <MCard horizontal>
-          <MTitle slot="title">Title</MTitle>
-          <div slot="subtitle"><MSubheading level="1">Subtitle</MSubheading></div>
-          <span slot="supportingText">
-            <MBody level="1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </MBody>
-          </span>
-          <span slot="actions">
-            <MButton unelevated>
-              github
-            </MButton>
-          </span>
-        </MCard>
+        <MTitle>Checkboxes</MTitle>
+      </MLayoutGridCell>
+      <MLayoutGridCell span="1">
+        <MCheckbox model="{{checkboxValue}}" />
       </MLayoutGridCell>
     </MLayoutGridInner>
+
+
 
   </MLayoutGrid>
 </MTheme>
@@ -74,7 +65,7 @@
 <script>
   
 import { MTheme } from './components/Theme'
-import { MButton } from './components/Button'
+import MButton from './components/Button'
 import { MFab } from './components/Fab'
 import { 
   MLayoutGrid, 
@@ -95,6 +86,7 @@ import {
   MCard,
   MCardMediaItem
 } from './components/Card'
+import { MCheckbox } from './components/Checkbox'
 
 export default {
   components: {
@@ -110,11 +102,14 @@ export default {
     MBody,
     MDisplay,
     MCard,
-    MCardMediaItem
+    MCardMediaItem,
+    MCheckbox
   },
   data() {
     return {
-      customStyles: ''
+      customStyles: {
+        --mdc-theme-primary: '#4286f4'
+      }
     }
   }
 }

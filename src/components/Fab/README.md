@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-fab mini absoluteRight icon="favorite" @click="..."/>
+<MFab mini absoluteRight icon="favorite" on:click="..."/>
 ```
 ### Props
 

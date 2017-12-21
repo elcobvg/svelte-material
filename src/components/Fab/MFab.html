@@ -35,10 +35,10 @@ export default {
     }
   },
   oncreate () {
-    this.mdcRipple = MDCRipple.attachTo(this.refs.self)
+    this.set({ mdcRipple: MDCRipple.attachTo(this.refs.self) })
   },
   ondestroy () {
-    this.mdcRipple.destroy()
+    this.get('mdcRipple').destroy()
   }
 }
 </script>

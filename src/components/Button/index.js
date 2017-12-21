@@ -1,5 +1,2 @@
 import MButton from './MButton.html'
-
-export {
-  MButton
-}
+export { MButton }

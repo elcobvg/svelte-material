@@ -3,17 +3,17 @@
 ### Markup
 
 ```html
-<m-card>
-    <m-card-media-item slot="media" :height="1" src="..." />
-    <m-typo-title slot="title">Title</m-typo-title>
-    <m-typo-subheading :level="1" slot="subtitle">
+<MCard>
+    <MCardMediaItem slot="media" height="1" src="..." />
+    <MTitle slot="title">Title</MTitle>
+    <MSubheading level="1" slot="subtitle">
         Subtitle
-    </m-typo-subheading>
-    <m-typo-body :level="1" slot="supportingText">
+    </MSubheading>
+    <MBody level="1" slot="supportingText">
         Text
-    </m-typo-body>
-    <m-button slot="actions">Action</m-button>
-</m-card>
+    </MBody>
+    <MButton slot="actions">Action</MButton>
+</MCard>
 ```
 
 ### Props

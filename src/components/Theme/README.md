@@ -3,13 +3,13 @@
 ### Markup
 
 ```html
-<m-theme dark :customStyles="customStyle">
+<MTheme dark :customStyles>
   themed content
-</m-theme>
+</MTheme>
 ```
 
 ```javascript
-const customStyle = {
+const customStyles = {
   --mdc-theme-primary: '#4286f4'
 }
 ```

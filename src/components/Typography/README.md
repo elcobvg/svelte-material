@@ -3,15 +3,15 @@
 ### Markup
 
 ```html
-<m-typography>
-    <m-typo-display :level="4">Display 4</m-typo-display>
-    <m-typo-headline>Headline</m-typo-headline>
-    <m-typo-title>Title</m-typo-title>
-    <m-typo-subheading :level="1">Subheading 1</m-typo-subheading>
-    <m-typo-body :level="2">Body 2</m-typo-body>
-    <m-typo-caption>Caption</m-typo-caption>
-    <m-typo-button>Button</m-typo-button>
-</m-typography>
+<MTypography>
+    <MDisplay level="4">Display 4</MDisplay>
+    <MHeadline>Headline</MHeadline>
+    <MTitle>Title</MTitle>
+    <MSubheading level="1">Subheading 1</MSubheading>
+    <MBody level="2">Body 2</MBody>
+    <MCaption>Caption</MCaption>
+    <MButtonLabel>Button</MButtonLabel>
+</MTypography>
 ```
 
 ### Slots
@@ -35,7 +35,7 @@
 |------|-------------------|-------------|
 | default | - | content |
 
-## MButton
+## MButtonLabel
 
 ### Props
 
