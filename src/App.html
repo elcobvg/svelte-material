@@ -57,6 +57,21 @@
       </MLayoutGridCell>
     </MLayoutGridInner>
 
+    <MTitle>Dialogs</MTitle>
+
+    <MLayoutGridInner>
+      <MLayoutGridCell span="4">
+        <MDialog ref="dialog" on:accepted="dialogAccepted()" on:canceled="dialogCanceled()">
+          <span slot="header">My first dialog</span>
+          <p slot="body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <span slot="acceptButton">Accept</span>
+          <span slot="cancelButton">Cancel</span>
+          <span slot="dialogButton">Click me!</span>
+        </MDialog>
+      </MLayoutGridCell>
+    </MLayoutGridInner>
 
 
   </MLayoutGrid>
@@ -65,7 +80,7 @@
 <script>
   
 import { MTheme } from './components/Theme'
-import MButton from './components/Button'
+import MButton from './components/Button/MButton.html'
 import { MFab } from './components/Fab'
 import { 
   MLayoutGrid, 
@@ -87,6 +102,7 @@ import {
   MCardMediaItem
 } from './components/Card'
 import { MCheckbox } from './components/Checkbox'
+import { MDialog } from './components/Dialog'
 
 export default {
   components: {
@@ -103,13 +119,23 @@ export default {
     MDisplay,
     MCard,
     MCardMediaItem,
-    MCheckbox
+    MCheckbox,
+    MDialog
   },
   data() {
     return {
       customStyles: {
-        --mdc-theme-primary: '#4286f4'
-      }
+        '--mdc-theme-primary': '#4286f4'
+      },
+      checkboxValue: true
+    }
+  },
+  methods: {
+    dialogAccepted () {
+      console.log('dialogAccepted')
+    },
+    dialogCanceled () {
+      console.log('dialogCanceled')
     }
   }
 }
