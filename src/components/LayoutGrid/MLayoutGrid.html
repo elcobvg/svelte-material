@@ -14,10 +14,10 @@ export default {
     classes: (fixedColumnWidth, align) => {
       const classList = []
 
-      fixedColumnWidth  && classList.push('mdc-layout-grid--fixed-column-width')
-      align === 'left'  && classList.push('mdc-layout-grid--align-left')
+      fixedColumnWidth && classList.push('mdc-layout-grid--fixed-column-width')
+      align === 'left' && classList.push('mdc-layout-grid--align-left')
       align === 'right' && classList.push('mdc-layout-grid--align-right')
-      
+
       return classList.join(' ')
     }
   }

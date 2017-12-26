@@ -18,12 +18,12 @@ export default {
     classes (span, spanDesktop, spanTablet, spanPhone, align, order) {
       const classList = []
 
-      span        && classList.push('mdc-layout-grid__cell--span-' + span)
+      span && classList.push('mdc-layout-grid__cell--span-' + span)
       spanDesktop && classList.push('mdc-layout-grid__cell--span-' + spanDesktop + '-desktop')
-      spanTablet  && classList.push('mdc-layout-grid__cell--span-' + spanTablet + '-tablet')
-      spanPhone   && classList.push('mdc-layout-grid__cell--span-' + spanPhone + '-phone')
-      align       && classList.push('mdc-layout-grid__cell--align-' + align)
-      order       && classList.push('mdc-layout-grid__cell--order-' + order)
+      spanTablet && classList.push('mdc-layout-grid__cell--span-' + spanTablet + '-tablet')
+      spanPhone && classList.push('mdc-layout-grid__cell--span-' + spanPhone + '-phone')
+      align && classList.push('mdc-layout-grid__cell--align-' + align)
+      order && classList.push('mdc-layout-grid__cell--order-' + order)
 
       return classList.join(' ')
     }

@@ -25,12 +25,12 @@ export default {
     classes: (mini, absolute, exited, background, color) => {
       const classList = []
 
-      mini        && classList.push('mdc-fab--mini')
-      absolute    && classList.push('mdc-fab--absolute-right')
-      exited      && classList.push('mdc-fab--exited')
-      background  && classList.push('mdc-theme--' + background + '-bg')
-      color       && classList.push('mdc-theme--' + color)
-      
+      mini && classList.push('mdc-fab--mini')
+      absolute && classList.push('mdc-fab--absolute-right')
+      exited && classList.push('mdc-fab--exited')
+      background && classList.push('mdc-theme--' + background + '-bg')
+      color && classList.push('mdc-theme--' + color)
+
       return classList.join(' ')
     }
   },

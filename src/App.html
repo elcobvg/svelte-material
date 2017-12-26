@@ -57,6 +57,35 @@
       </MLayoutGridCell>
     </MLayoutGridInner>
 
+    <MTitle>Drawers</MTitle>
+
+    <MLayoutGridInner>
+      <MLayoutGridCell span="6">
+        <MPermanentDrawer>
+          <span slot="toolbarSpacer" />
+          <ul>
+            <li>One item</li>
+            <li>Another item</li>
+            <li>Third and last item</li>
+          </ul>
+        </MPermanentDrawer>
+      </MLayoutGridCell>
+
+      <MLayoutGridCell span="6">
+        <MButton raised>toggle</MButton>
+        <MPersistentDrawer ref="persistentDrawer">
+          <span slot="toolbarSpacer" />
+          <span slot="header">Persistent Drawer</span>
+          <ul>
+            <li>One item</li>
+            <li>Another item</li>
+            <li>Third and last item</li>
+          </ul>
+        </MPersistentDrawer>
+      </MLayoutGridCell>
+
+    </MLayoutGridInner>
+
     <MTitle>Dialogs</MTitle>
 
     <MLayoutGridInner>
@@ -71,6 +100,7 @@
           <span slot="dialogButton">Click me!</span>
         </MDialog>
       </MLayoutGridCell>
+
     </MLayoutGridInner>
 
 
@@ -82,9 +112,9 @@
 import { MTheme } from './components/Theme'
 import MButton from './components/Button/MButton.html'
 import { MFab } from './components/Fab'
-import { 
-  MLayoutGrid, 
-  MLayoutGridCell, 
+import {
+  MLayoutGrid,
+  MLayoutGridCell,
   MLayoutGridInner
 } from './components/LayoutGrid'
 import {
@@ -103,41 +133,52 @@ import {
 } from './components/Card'
 import { MCheckbox } from './components/Checkbox'
 import { MDialog } from './components/Dialog'
+import {
+  MPermanentDrawer,
+  MPersistentDrawer,
+  MTemporaryDrawer
+} from './components/Drawer'
 
 export default {
-  components: {
-    MTheme, 
-    MLayoutGrid, 
-    MLayoutGridCell,
-    MLayoutGridInner, 
-    MButton,
-    MFab,
-    MHeadline,
-    MTitle,
-    MSubheading,
-    MBody,
-    MDisplay,
-    MCard,
-    MCardMediaItem,
-    MCheckbox,
-    MDialog
-  },
-  data() {
-    return {
-      customStyles: {
-        '--mdc-theme-primary': '#4286f4'
-      },
-      checkboxValue: true
-    }
-  },
-  methods: {
-    dialogAccepted () {
-      console.log('dialogAccepted')
+    components: {
+      MTheme,
+      MLayoutGrid,
+      MLayoutGridCell,
+      MLayoutGridInner,
+      MButton,
+      MFab,
+      MHeadline,
+      MTitle,
+      MSubheading,
+      MBody,
+      MDisplay,
+      MCard,
+      MCardMediaItem,
+      MCheckbox,
+      MDialog,
+      MPermanentDrawer,
+      MPersistentDrawer,
+      MTemporaryDrawer
     },
-    dialogCanceled () {
-      console.log('dialogCanceled')
+    data () {
+      return {
+        customStyles: {
+          '--mdc-theme-primary': '#4286f4'
+        },
+        checkboxValue: true
+      }
+    },
+    methods: {
+      dialogAccepted () {
+        console.log('dialogAccepted')
+      },
+      dialogCanceled () {
+        console.log('dialogCanceled')
+      }
+    },
+    oncreate () {
+      console.log(this)
     }
-  }
 }
 
 </script>

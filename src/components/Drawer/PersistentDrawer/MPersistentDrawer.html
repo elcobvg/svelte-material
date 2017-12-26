@@ -1,0 +1,69 @@
+<aside ref:self class="mdc-persistent-drawer" v-on="$listeners">
+    <nav class="mdc-persistent-drawer__drawer">
+      {{#if slots['toolbarSpacer']}}
+        <div class="mdc-temporary-drawer__toolbar-spacer {{spacerClasses}}">
+            <slot name="toolbarSpacer" />
+        </div>
+      {{/if}}
+      {{#if slots['header']}}
+        <header class="mdc-persistent-drawer__header {{headerClasses}}">
+            <div class="mdc-persistent-drawer__header-content">
+                <slot name="header" />
+            </div>
+        </header>
+      {{/if}}
+      {{#if slots['default']}}
+        <nav class="mdc-persistent-drawer__content {{contentClasses}}">
+            <slot />
+        </nav>
+      {{/if}}
+    </nav>
+</aside>
+
+<script>
+import { MDCPersistentDrawer } from '@material/drawer'
+
+export default {
+  data () {
+    return {
+      slots: [],
+      initialOpen: false,
+      primaryHeader: '',
+      primaryToolbarSpacer: false,
+      primaryContent: '',
+      open: false,
+      mdcPersistentDrawer: false
+    }
+  },
+  computed: {
+    spacerClasses: primaryToolbarSpacer => {
+      return primaryToolbarSpacer && 'mdc-theme--primary-bg mdc-theme--text-primary-on-primary'
+    },
+    headerClasses: primaryHeader => {
+      return primaryHeader && 'mdc-theme--primary-bg mdc-theme--text-primary-on-primary'
+    },
+    contentClasses: primaryContent => {
+      return primaryContent && 'mdc-theme--primary-bg mdc-theme--text-primary-on-primary'
+    }
+  },
+  methods: {
+    toggle () {
+      open = !open
+      mdcPersistentDrawer.open = open
+    }
+  },
+  oncreate () {
+    this.set({ slots: this.options.slots })
+    this.set({ mdcPersistentDrawer: MDCPersistentDrawer.attachTo(this.refs.self) })
+    this.set({ open: this.get('initialOpen') })
+    // this.set({ mdcPersistentDrawer.open: this.get('open') })
+  },
+  ondestroy () {
+    this.get('mdcPersistentDrawer').destroy()
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/drawer/mdc-drawer";
+</style>
