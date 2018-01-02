@@ -1,0 +1,63 @@
+<i ref:self on:click="onClick()" class="mdc-icon-toggle material-icons {{classes}}"
+  role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
+    {{icon}}
+</i>
+
+<script>
+import { MDCIconToggle } from '@material/icon-toggle'
+import { debounce } from '../helpers'
+
+export default {
+
+  data () {
+    return {
+      mdcIconToggle: {},
+      iconOn: '',
+      iconOff: '',
+      disabled: false,
+      primary: false,
+      accent: false,
+      value: false
+    }
+  },
+  oncreate () {
+    this.set({ mdcIconToggle: MDCIconToggle.attachTo(this.refs.self) })
+    // this.observe('disabled',  (disabled, mdcIconToggle) => { mdcIconToggle.disabled = disabled })
+    // this.observe('value',  (value, mdcIconToggle) => { mdcIconToggle.on = value })
+  },
+  ondestroy () {
+    this.get('mdcIconToggle').destroy()
+  },
+  computed: {
+    classes: (disabled, primary, accent) => {
+      const classList = []
+
+      disabled && classList.push('mdc-icon-toggle--disabled')
+      primary && classList.push('mdc-icon-toggle--primary')
+      accent && classList.push('mdc-icon-toggle--accent')
+
+      return classList.join(' ')
+    },
+    icon: (value, iconOn, iconOff) => {
+      return value ? iconOn : iconOff
+    },
+    dataToggleOn: (iconOn) => {
+      return JSON.stringify({ 'content': iconOn })
+    },
+    dataToggleOff: (iconOff) => {
+      return JSON.stringify({ 'content': iconOff })
+    }
+  },
+  methods: {
+    onClick () {
+      this.set({ value: !this.get('value') })
+      const value = this.get('value')
+      debounce(this.fire('input', { value }))
+    }
+  }
+}
+</script>
+
+<style type='text/scss'>
+@import "@material/icon-toggle/mdc-icon-toggle";
+</style>

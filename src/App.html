@@ -84,6 +84,19 @@
         </MPersistentDrawer>
       </MLayoutGridCell>
 
+      <MLayoutGridCell span="6">
+        <MButton raised>toggle</MButton>
+        <MTemporaryDrawer ref="temporaryDrawer" initialOpen>
+          <span slot="toolbarSpacer" />
+          <span slot="header">Temporary Drawer</span>
+          <ul>
+            <li>One item</li>
+            <li>Another item</li>
+            <li>Third and last item</li>
+          </ul>
+        </MTemporaryDrawer>
+      </MLayoutGridCell>
+
     </MLayoutGridInner>
 
     <MTitle>Dialogs</MTitle>
@@ -103,6 +116,40 @@
 
     </MLayoutGridInner>
 
+    <MTitle>Elevation</MTitle>
+
+    <MLayoutGridInner>
+      <MLayoutGridCell span="3">
+        <MElevation level="1">
+          <MHeadline>Elevation level 1</MHeadline>
+        </MElevation>
+      </MLayoutGridCell>
+
+      <MLayoutGridCell span="3">
+        <MElevation level="6">
+          <MHeadline>Elevation level 6</MHeadline>
+        </MElevation>
+      </MLayoutGridCell>
+
+      <MLayoutGridCell span="3">
+        <MElevation level="12">
+          <MHeadline>Elevation level 12</MHeadline>
+        </MElevation>
+      </MLayoutGridCell>
+    </MLayoutGridInner>
+
+    <MTitle>Icons</MTitle>
+
+    <MLayoutGridInner>
+      <MLayoutGridCell span="2">
+        <MSubheading level="1">Icon</MSubheading>
+        <MIcon icon="cloud" />
+      </MLayoutGridCell>
+      <MLayoutGridCell span="2">
+        <MSubheading level="1">IconToggle</MSubheading>
+        <MIconToggle value="{{iconToggle}}" iconOn="favorite" iconOff="favorite_border" on:input="iconEvent(event.value)"/>
+      </MLayoutGridCell>
+    </MLayoutGridInner>
 
   </MLayoutGrid>
 </MTheme>
@@ -138,6 +185,9 @@ import {
   MPersistentDrawer,
   MTemporaryDrawer
 } from './components/Drawer'
+import { MElevation } from './components/Elevation'
+import { MIcon } from './components/Icon'
+import { MIconToggle } from './components/IconToggle'
 
 export default {
     components: {
@@ -158,14 +208,18 @@ export default {
       MDialog,
       MPermanentDrawer,
       MPersistentDrawer,
-      MTemporaryDrawer
+      MTemporaryDrawer,
+      MElevation,
+      MIcon,
+      MIconToggle
     },
     data () {
       return {
         customStyles: {
           '--mdc-theme-primary': '#4286f4'
         },
-        checkboxValue: true
+        checkboxValue: true,
+        iconToggle: false
       }
     },
     methods: {
@@ -174,6 +228,9 @@ export default {
       },
       dialogCanceled () {
         console.log('dialogCanceled')
+      },
+      iconEvent (value) {
+        console.log('IconToggle clicked', value)
       }
     },
     oncreate () {

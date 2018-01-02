@@ -1,0 +1,19 @@
+<i class="material-icons" on:click="clicked()">
+    {{icon}}
+</i>
+
+<script>
+export default {
+  data () {
+    return {
+      icon: ''
+    }
+  },
+  methods: {
+    clicked () {
+      this.fire('icon-clicked')
+      console.log('icon-clicked')
+    }
+  }
+}
+</script>
