@@ -147,9 +147,18 @@
       </MLayoutGridCell>
       <MLayoutGridCell span="2">
         <MSubheading level="1">IconToggle</MSubheading>
-        <MIconToggle value="{{iconToggle}}" iconOn="favorite" iconOff="favorite_border" on:input="iconEvent(event.value)"/>
+        <MIconToggle value="{{iconToggle}}" iconOn="favorite" iconOff="favorite_border" on:input="iconEvent(event.value)" accent />
       </MLayoutGridCell>
     </MLayoutGridInner>
+
+    <MTitle>Linear Progress</MTitle>
+
+    <MLayoutGridInner>
+      <MLayoutGridCell>
+        <MLinearProgress ref="progress" open progress="0.5" buffer="0.5" indeterminate />
+      </MLayoutGridCell>
+    </MLayoutGridInner>
+
 
   </MLayoutGrid>
 </MTheme>
@@ -188,6 +197,7 @@ import {
 import { MElevation } from './components/Elevation'
 import { MIcon } from './components/Icon'
 import { MIconToggle } from './components/IconToggle'
+import { MLinearProgress } from './components/LinearProgress'
 
 export default {
     components: {
@@ -211,7 +221,8 @@ export default {
       MTemporaryDrawer,
       MElevation,
       MIcon,
-      MIconToggle
+      MIconToggle,
+      MLinearProgress
     },
     data () {
       return {

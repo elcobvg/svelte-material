@@ -1,0 +1,68 @@
+<div ref:self role="progressbar" class="mdc-linear-progress">
+    <div class="mdc-linear-progress__buffering-dots"></div>
+    <div class="mdc-linear-progress__buffer"></div>
+    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+        <span class="mdc-linear-progress__bar-inner"></span>
+    </div>
+    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+        <span class="mdc-linear-progress__bar-inner"></span>
+    </div>
+</div>
+
+<script>
+import { MDCLinearProgress } from '@material/linear-progress'
+
+export default {
+  data () {
+    return {
+      mdcLinearProgress: null,
+      open: false,
+      indeterminate: false,
+      reverse: false,
+      progress: 0,
+      buffer: 0
+    }
+  },
+  observe: {
+    progress () {
+      this.mdcLinearProgress.progress(this.progress)
+    },
+    buffer () {
+      this.mdcLinearProgress.buffer(this.buffer)
+    },
+    indeterminate () {
+      this.mdcLinearProgress.determinate = !this.indeterminate
+    },
+    reversed () {
+      this.mdcLinearProgress.reverse = this.reversed
+    },
+    open () {
+      this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
+    }
+  },
+  oncreate () {
+    this.set({mdcLinearProgress: MDCLinearProgress.attachTo(this.refs.self)})
+    const mdcLinearProgress = this.get('mdcLinearProgress')
+    this.set({mdcLinearProgress.determinate: !this.indeterminate})
+    this.set({mdcLinearProgress.reverse: this.reverse})
+    this.set({mdcLinearProgress.progress: this.progress})
+    this.set({mdcLinearProgress.buffer: this.buffer})
+    this.get('open') ? mdcLinearProgress.open() : mdcLinearProgress.close()
+  },
+  ondestroy () {
+    this.get('mdcLinearProgress').destroy()
+  },
+  methods: {
+    show () {
+      this.mdcLinearProgress.open()
+    },
+    hide () {
+      this.mdcLinearProgress.close()
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import "@material/linear-progress/mdc-linear-progress";
+</style>
